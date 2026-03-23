@@ -8,7 +8,7 @@ export default function Hero() {
           </div>
           <div className="photo-wrap">
         <div className="photo-circle">
-        <span className="photo-initials">CK</span>
+        <span className="photo-initials">kay</span>
           </div>
             <div>
               <div className="hero-tag">// Backend Developer</div>
