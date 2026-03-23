@@ -7,12 +7,12 @@ export default function Hero() {
             <span className="status-dot"></span>Available for work
           </div>
           <div className="photo-wrap">
-            <div className="photo-circle">
-              <span className="photo-initials">CK</span>
-            </div>
+        <div className="photo-circle">
+        <span className="photo-initials">CK</span>
+          </div>
             <div>
               <div className="hero-tag">// Backend Developer</div>
-              <div className="hero-name">Ovaga Casmir Kosi</div>
+              <div className="hero-name">Ovaga Casmir Kosi</div>  
             </div>
           </div>
           <h1 className="hero-headline">
