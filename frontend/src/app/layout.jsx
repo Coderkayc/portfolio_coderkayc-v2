@@ -3,7 +3,7 @@ import { ThemeProvider } from '../context/ThemeContext'
 import Cursor from '../components/Cursor'
 
 export const metadata = {
-  title: 'Your Name | Backend Engineer',
+  title: 'Coderkayc_Portfolio',
   description: 'Backend Engineer specialising in Node.js, Express, MongoDB and scalable API design.',
 }
 
