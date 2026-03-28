@@ -42,7 +42,7 @@ export default function Hero() {
             <span className="t-line"><span className="t-prompt">$ </span><span className="t-cmd">cat profile.json</span></span>
             <span className="t-line">&nbsp;</span>
             <span className="t-line"><span className="t-cmd">{'{'}</span></span>
-            <span className="t-line"><span className="t-out"><span className="t-key">&quot;role&quot;</span>: <span className="t-str">&quot;Backend Engineer&quot;</span>,</span></span>
+            <span className="t-line"><span className="t-out"><span className="t-key">&quot;role&quot;</span>: <span className="t-str">&quot;Backend Developer&quot;</span>,</span></span>
             <span className="t-line"><span className="t-out"><span className="t-key">&quot;experience&quot;</span>: <span className="t-num">3</span>,</span></span>
             <span className="t-line"><span className="t-out"><span className="t-key">&quot;focus&quot;</span>: [</span></span>
             <span className="t-line"><span className="t-out">&nbsp;&nbsp;<span className="t-str">&quot;Node.js&quot;</span>, <span className="t-str">&quot;REST APIs&quot;</span>,</span></span>
