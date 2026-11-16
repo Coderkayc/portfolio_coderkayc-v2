@@ -69,12 +69,12 @@ export default function Contact() {
           <form className="contact-form reveal reveal-right" ref={formRef} onSubmit={handleSubmit}>
             <div className="form-group">
               <label className="form-label" htmlFor="name">Your name</label>
-              <input id="name" type="text" name="name" className="form-input" placeholder="John Doe"
+              <input id="name" type="text" name="name" className="form-input" placeholder="Name..."
                 value={form.name} onChange={handleChange} required />
             </div>
             <div className="form-group">
               <label className="form-label" htmlFor="email">Your email</label>
-              <input id="email" type="email" name="email" className="form-input" placeholder="john@example.com"
+              <input id="email" type="email" name="email" className="form-input" placeholder="Email..."
                 value={form.email} onChange={handleChange} required />
             </div>
             <div className="form-group">
