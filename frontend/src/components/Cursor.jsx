@@ -10,8 +10,11 @@ export default function Cursor() {
     const ring = ringRef.current
     if (!dot || !ring) return
 
-    let mouseX = 0, mouseY = 0
-    let ringX  = 0, ringY  = 0
+    // Skip the custom cursor entirely on touch devices
+    if (!window.matchMedia('(pointer: fine)').matches) return
+
+    let mouseX = -100, mouseY = -100
+    let ringX  = -100, ringY  = -100
     let raf
 
     const onMove = (e) => {
@@ -23,41 +26,33 @@ export default function Cursor() {
     const lerp = (a, b, t) => a + (b - a) * t
 
     const animate = () => {
-      ringX = lerp(ringX, mouseX, 0.12)
-      ringY = lerp(ringY, mouseY, 0.12)
+      ringX = lerp(ringX, mouseX, 0.14)
+      ringY = lerp(ringY, mouseY, 0.14)
       ring.style.transform = `translate(${ringX}px, ${ringY}px)`
       raf = requestAnimationFrame(animate)
     }
 
-    // Grow ring on hoverable elements
-    const onEnter = () => ring.classList.add('cursor-hover')
-    const onLeave = () => ring.classList.remove('cursor-hover')
-
-    const targets = 'a, button, [role="button"], input, textarea, .project-card, .stat-card, .skill-group'
-
-    const attachListeners = () => {
-      document.querySelectorAll(targets).forEach(el => {
-        el.addEventListener('mouseenter', onEnter)
-        el.addEventListener('mouseleave', onLeave)
-      })
+    // Grow the ring over interactive elements (event delegation — no re-attaching needed)
+    const hoverSelector = 'a, button, [role="button"], input, textarea, label, .project-card, .stat-card, .skill-group'
+    const onOver = (e) => {
+      if (e.target.closest(hoverSelector)) ring.classList.add('cursor-hover')
+    }
+    const onOut = (e) => {
+      if (e.target.closest(hoverSelector)) ring.classList.remove('cursor-hover')
     }
 
-    // Hide default cursor
-    document.body.style.cursor = 'none'
-
+    document.documentElement.classList.add('has-custom-cursor')
     window.addEventListener('mousemove', onMove)
-    attachListeners()
+    document.addEventListener('mouseover', onOver)
+    document.addEventListener('mouseout', onOut)
     raf = requestAnimationFrame(animate)
 
-    // Re-attach on any DOM changes (Next.js route transitions)
-    const observer = new MutationObserver(attachListeners)
-    observer.observe(document.body, { childList: true, subtree: true })
-
     return () => {
+      document.documentElement.classList.remove('has-custom-cursor')
       window.removeEventListener('mousemove', onMove)
+      document.removeEventListener('mouseover', onOver)
+      document.removeEventListener('mouseout', onOut)
       cancelAnimationFrame(raf)
-      observer.disconnect()
-      document.body.style.cursor = ''
     }
   }, [])
 

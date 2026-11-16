@@ -3,6 +3,15 @@ import { useScrollReveal } from '../lib/useScrollReveal'
 
 const skillGroups = [
   {
+    title: 'Frontend',
+    skills: [
+      { name: 'Next.js',     pct: 78 },
+      { name: 'React',       pct: 75 },
+      { name: 'TailwindCSS', pct: 80 },
+      { name: 'TypeScript',  pct: 70 },
+    ],
+  },
+  {
     title: 'Backend',
     skills: [
       { name: 'Node.js',         pct: 90 },
@@ -17,25 +26,16 @@ const skillGroups = [
       { name: 'MongoDB',      pct: 87 },
       { name: 'Mongoose ODM', pct: 85 },
       { name: 'Redis',        pct: 70 },
-      { name: 'PostgreSQL',   pct: 65 },
-    ],
-  },
-  {
-    title: 'Frontend',
-    skills: [
-      { name: 'Next.js',     pct: 78 },
-      { name: 'React',       pct: 75 },
-      { name: 'TailwindCSS', pct: 80 },
-      { name: 'TypeScript',  pct: 70 },
+      { name: 'MySQL',   pct: 65 },
     ],
   },
   {
     title: 'DevOps & Tools',
     skills: [
-      { name: 'Docker',              pct: 72 },
-      { name: 'Git & GitHub',        pct: 90 },
-      { name: 'Linux / Bash',        pct: 78 },
-      { name: 'CI/CD (GH Actions)',  pct: 68 },
+      { name: 'Docker',             pct: 72 },
+      { name: 'Git & GitHub',       pct: 90 },
+      { name: 'Linux / Bash',       pct: 78 },
+      { name: 'CI/CD (GH Actions)', pct: 68 },
     ],
   },
 ]
@@ -52,10 +52,7 @@ function SkillGroup({ group }) {
             <span className="skill-pct">{s.pct}%</span>
           </div>
           <div className="skill-track">
-            <div
-              className="skill-fill"
-              style={{ '--skill-w': `${s.pct}%` }}
-            ></div>
+            <div className="skill-fill" style={{ '--skill-w': `${s.pct}%` }}></div>
           </div>
         </div>
       ))}
@@ -71,13 +68,11 @@ export default function Skills() {
       <div className="section-wrap">
         <div className="section-header reveal" ref={headerRef}>
           <div className="section-eyebrow">Tech stack</div>
-          <h2 className="section-title">Skills &amp; tools</h2>
+          <h2 className="section-title">Skills &amp; <em>tools</em></h2>
           <div className="section-line"></div>
         </div>
         <div className="skills-grid">
-          {skillGroups.map((group) => (
-            <SkillGroup key={group.title} group={group} />
-          ))}
+          {skillGroups.map((g) => <SkillGroup key={g.title} group={g} />)}
         </div>
       </div>
     </section>

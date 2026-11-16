@@ -1,4 +1,17 @@
+'use client'
+import { useState, useEffect, useRef } from 'react'
+
 export default function Hero() {
+  // If /public/profile.jpg is missing, fall back to initials instead of a broken image
+  const [imgOk, setImgOk] = useState(true)
+  const imgRef = useRef(null)
+
+  // the browser may report the failed load before React attaches onError, so check once on mount
+  useEffect(() => {
+    const el = imgRef.current
+    if (el && el.complete && el.naturalWidth === 0) setImgOk(false)
+  }, [])
+
   return (
     <div className="hero">
       <div className="hero-inner">
@@ -6,53 +19,71 @@ export default function Hero() {
           <div className="status-badge">
             <span className="status-dot"></span>Available for work
           </div>
+
           <div className="photo-wrap">
-        <div className="photo-circle">
-        <span className="photo-initials">kay</span>
-          </div>
+            <div className="photo-circle">
+              <div className="photo-inner">
+                {imgOk ? (
+                  <img
+                    ref={imgRef}
+                    src="/profile.jpg"
+                    alt="Ovaga Casmir Kosi"
+                    className="photo-img"
+                    onError={() => setImgOk(false)}
+                  />
+                ) : (
+                  <span className="photo-initials">OK</span>
+                )}
+              </div>
+            </div>
             <div>
-              <div className="hero-tag">// Backend Developer</div>
-              <div className="hero-name">Ovaga Casmir Kosi</div>  
+              <div className="hero-tag">// Software Developer</div>
+              <div className="hero-name">Ovaga Casmir Kosi</div>
             </div>
           </div>
+
           <h1 className="hero-headline">
-            Building the<br />
-            <span className="hl">infrastructure</span><br />
-            <span className="dim">behind great products.</span>
+            I build software people <em>actually</em> enjoy using.
           </h1>
+
           <p className="hero-bio">
-            I architect and ship backend systems — APIs that scale, databases that perform,
-            and pipelines that don&apos;t break at 3am. I care about correctness, reliability,
-            and code that other developers actually enjoy working with.
+            Full-stack software developer crafting fast, reliable web applications — from
+            polished interfaces to the APIs and databases behind them. I care about clean
+            code, thoughtful design, and shipping things that work.
           </p>
+
           <div className="hero-ctas">
-            <a href="#projects" className="btn-primary">View projects</a>
-            <a href="#contact"  className="btn-ghost">Get in touch</a>
+            <a href="#projects" className="btn-primary">
+              View projects <span className="arrow">→</span>
+            </a>
+            <a href="#contact" className="btn-ghost">Get in touch</a>
           </div>
         </div>
 
-        <div className="terminal">
-          <div className="terminal-bar">
-            <div className="t-dot r"></div>
-            <div className="t-dot y"></div>
-            <div className="t-dot g"></div>
-            <span className="t-title">profile.json</span>
-          </div>
-          <div className="terminal-body">
-            <span className="t-line"><span className="t-prompt">$ </span><span className="t-cmd">cat profile.json</span></span>
-            <span className="t-line">&nbsp;</span>
-            <span className="t-line"><span className="t-cmd">{'{'}</span></span>
-            <span className="t-line"><span className="t-out"><span className="t-key">&quot;role&quot;</span>: <span className="t-str">&quot;Backend Developer&quot;</span>,</span></span>
-            <span className="t-line"><span className="t-out"><span className="t-key">&quot;experience&quot;</span>: <span className="t-num">3</span>,</span></span>
-            <span className="t-line"><span className="t-out"><span className="t-key">&quot;focus&quot;</span>: [</span></span>
-            <span className="t-line"><span className="t-out">&nbsp;&nbsp;<span className="t-str">&quot;Node.js&quot;</span>, <span className="t-str">&quot;REST APIs&quot;</span>,</span></span>
-            <span className="t-line"><span className="t-out">&nbsp;&nbsp;<span className="t-str">&quot;MongoDB&quot;</span>, <span className="t-str">&quot;PostgreSQL&quot;</span></span></span>
-            <span className="t-line"><span className="t-out">],</span></span>
-            <span className="t-line"><span className="t-out"><span className="t-key">&quot;available&quot;</span>: <span className="t-val">true</span>,</span></span>
-            <span className="t-line"><span className="t-out"><span className="t-key">&quot;coffee&quot;</span>: <span className="t-str">&quot;required&quot;</span></span></span>
-            <span className="t-line"><span className="t-cmd">{'}'}</span></span>
-            <span className="t-line">&nbsp;</span>
-            <span className="t-line"><span className="t-prompt">$ </span><span className="t-comment">_<span className="t-cursor"></span></span></span>
+        <div className="code-card-outer">
+          <div className="code-card-wrap">
+            <span className="float-chip chip-b"><b>●</b> full-stack</span>
+            <div className="code-card">
+              <div className="code-bar">
+                <span className="c-dot a"></span>
+                <span className="c-dot b"></span>
+                <span className="c-dot c"></span>
+                <span className="code-file">developer.ts</span>
+              </div>
+              <div className="code-body">
+                <span className="code-line"><span className="cm">// who am i</span></span>
+                <span className="code-line"><span className="k">const</span> <span className="s">developer</span> <span className="p">=</span> <span className="p">{'{'}</span></span>
+                <span className="code-line">  <span className="p">name:</span> <span className="s">&quot;Ovaga Casmir Kosi&quot;</span><span className="p">,</span></span>
+                <span className="code-line">  <span className="p">role:</span> <span className="s">&quot;Software Developer&quot;</span><span className="p">,</span></span>
+                <span className="code-line">  <span className="p">stack:</span> <span className="p">[</span></span>
+                <span className="code-line">    <span className="s">&quot;Next.js&quot;</span><span className="p">,</span> <span className="s">&quot;React&quot;</span><span className="p">,</span></span>
+                <span className="code-line">    <span className="s">&quot;Node.js&quot;</span><span className="p">,</span> <span className="s">&quot;MongoDB&quot;</span></span>
+                <span className="code-line">  <span className="p">],</span></span>
+                <span className="code-line">  <span className="p">available:</span> <span className="n">true</span><span className="p">,</span></span>
+                <span className="code-line"><span className="p">{'}'}</span><span className="caret"></span></span>
+              </div>
+            </div>
+            <span className="float-chip chip-a"><b>→</b> open to work</span>
           </div>
         </div>
       </div>
