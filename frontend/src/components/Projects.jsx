@@ -18,16 +18,6 @@ const LiveIcon = () => (
 // ✏️ Replace these sample projects with your real ones
 const projects = [
   {
-    tag: 'Full-stack',
-    name: 'Attendance Management System',
-    desc: 'A full-stack QR-code based attendance management system built for the University of Nigeria, Nsukka (UNN). The system enables lecturers to generate attendance sessions using QR codes, students to mark attendance securely, and administrators to manage courses and generate attendance reports.',
-    stack: ['Next.js', 'Node.js', 'Express', 'MongoDB', 'React'],
-    perf: '1k+ users',
-    github: 'https://github.com/Coderkayc/Attendance-System',
-    live: 'https://attendance-system-rho-virid.vercel.app',
-    featured: true,
-  },
-  {
     tag: 'Web App',
     name: 'Luminest Africa - Energy Expense Tracker',
     desc: 'LUMINEST AFRICA is a web app that helps Nigerian households track and understand what they spend on electricity — across NEPA prepaid tokens, generator diesel, and solar top-ups — all in one place. It provides insights into energy consumption patterns, helps users optimize their electricity usage, and ultimately saves them money.Real-time productivity dashboard with GitHub integrations, custom metrics and live team insights streamed over WebSockets.',
@@ -35,6 +25,16 @@ const projects = [
     perf: 'live updates < 100ms',
     github: 'https://github.com/Coderkayc/LUMINEST-AFRICA',
     live: 'https://luminestafrica.vercel.app',
+    featured: true,
+  },
+  {
+    tag: 'Full-stack',
+    name: 'Attendance Management System',
+    desc: 'A full-stack QR-code based attendance management system built for the University of Nigeria, Nsukka (UNN). The system enables lecturers to generate attendance sessions using QR codes, students to mark attendance securely, and administrators to manage courses and generate attendance reports.',
+    stack: ['Next.js', 'Node.js', 'Express', 'MongoDB', 'React'],
+    perf: '1k+ users',
+    github: 'https://github.com/Coderkayc/Attendance-System',
+    live: 'https://attendance-system-rho-virid.vercel.app',
   },
   {
     tag: 'Machine Learning',
