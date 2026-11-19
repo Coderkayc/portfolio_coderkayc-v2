@@ -55,13 +55,13 @@ const projects = [
     live: 'https://sarps.vercel.app',
   },
   {
-    tag: 'DevOps',
+    /*tag: 'DevOps',
     name: 'Deployment Toolkit',
     desc: 'CLI and API layer for service deployment, secrets and environment provisioning using Docker and GitHub Actions. Cut onboarding from days to under an hour.',
     stack: ['Node.js', 'Docker', 'Linux / Bash', 'GitHub Actions'],
     perf: 'days → 1 hour',
     github: 'https://github.com/yourhandle/deploy-toolkit',
-    live: 'https://deploy.yourname.dev',
+    live: 'https://deploy.yourname.dev',*/
   },
 ]
 
